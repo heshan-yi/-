@@ -35,7 +35,7 @@ const WitchBot: React.FC<WitchBotProps> = ({ theme, isOpen, setIsOpen }) => {
           {/* Minimalist Header */}
           <div className="p-5 border-b border-current/10 flex justify-between items-center bg-current/5">
             <span className="font-cinzel text-[9px] tracking-[0.5em] uppercase font-bold">
-              {theme === 'dark' ? 'Signal Received' : 'Curator Desk'}
+              {theme === 'dark' ? 'Architect Log' : 'Curator Desk'}
             </span>
             <button onClick={() => setIsOpen(false)} className="text-sm hover:rotate-90 transition-transform">✕</button>
           </div>
@@ -45,10 +45,10 @@ const WitchBot: React.FC<WitchBotProps> = ({ theme, isOpen, setIsOpen }) => {
             {messages.length === 0 && (
               <div className="h-full flex flex-col items-center justify-center text-center opacity-30 space-y-6">
                 <span className={`text-4xl transition-all duration-1000 ${theme === 'dark' ? 'animate-dream blur-[2px]' : ''}`}>
-                  {theme === 'dark' ? '📽️' : '📖'}
+                  {theme === 'dark' ? '💾' : '📑'}
                 </span>
                 <p className="font-serif italic text-sm leading-relaxed px-4">
-                  {theme === 'dark' ? "What whispers do you seek from the static?" : "How may I assist your traversal through the archive?"}
+                  {theme === 'dark' ? "想要同步哪段架构逻辑？" : "有什么关于系统设计的疑问吗？"}
                 </p>
               </div>
             )}
@@ -77,13 +77,13 @@ const WitchBot: React.FC<WitchBotProps> = ({ theme, isOpen, setIsOpen }) => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
               className="flex-1 bg-transparent border-none focus:ring-0 text-sm font-serif italic outline-none placeholder:opacity-30"
-              placeholder={theme === 'dark' ? "Signal..." : "Inquire..."}
+              placeholder={theme === 'dark' ? "Sync..." : "Inquire..."}
             />
             <button 
               onClick={handleSend}
               className="font-cinzel text-[9px] font-bold tracking-[0.2em] hover:opacity-40 transition-opacity"
             >
-              BREW
+              LOG
             </button>
           </div>
         </div>

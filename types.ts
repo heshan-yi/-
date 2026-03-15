@@ -6,6 +6,7 @@ export type ContentItem = {
   image: string;
   category: string;
   tags?: string[];
+  role?: string;
 };
 
 export type Section = {

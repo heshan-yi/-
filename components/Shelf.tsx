@@ -13,11 +13,6 @@ const Shelf: React.FC<ShelfProps> = ({ section, isDark, onItemClick }) => {
     <div className="relative">
       {/* Decorative Game-style Header */}
       <div className={`flex flex-col mb-20 ${isDark ? 'items-center text-center' : 'items-start'}`}>
-        <div className={`mb-6 p-1 border-b-2 transition-all duration-1000 ${isDark ? 'border-purple-500/30' : 'border-black/10'}`}>
-          <div className={`w-14 h-14 flex items-center justify-center text-3xl transition-all ${isDark ? 'animate-dream blur-[0.5px]' : 'opacity-40'}`}>
-            {section.icon}
-          </div>
-        </div>
         <div className="relative group">
           <h3 className={`text-4xl font-chinese font-bold tracking-tight uppercase ${isDark ? 'text-white' : 'text-black'}`}>
             {section.name}
@@ -121,6 +116,17 @@ const ItemSlot: React.FC<ItemSlotProps> = ({ item, isDark, idx, onClick }) => {
         <p className={`text-xs font-serif italic leading-relaxed transition-opacity duration-700 ${isDark ? 'opacity-20 group-hover:opacity-50' : 'opacity-50'}`}>
           {item.description}
         </p>
+        
+        {/* Tags Display */}
+        {item.tags && item.tags.length > 0 && (
+          <div className={`mt-4 flex flex-wrap gap-2 ${isDark ? 'justify-center' : 'justify-start'}`}>
+            {item.tags.map(tag => (
+              <span key={tag} className={`text-[8px] font-cinzel px-2 py-[2px] border rounded-full ${isDark ? 'border-purple-500/30 text-purple-400/60' : 'border-black/10 text-black/40'}`}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Slot Interaction Hints */}
